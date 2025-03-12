@@ -10,12 +10,17 @@ function asignarTextoElemento(elemento , texto){
 }
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-    console.log(numeroSecreto);
-    console.log(typeof(numeroSecreto));
-    console.log(numeroDeUsuario);
-    console.log(typeof(numeroDeUsuario));
-    console.log(numeroDeUsuario===numeroSecreto);
     // igual en valor e igual en tipo ===
+    console.log(numeroSecreto);
+    if(numeroDeUsuario === numeroSecreto){
+        asignarTextoElemento('p','ACERTASTE EL NÚMERO')
+    }else{
+        if(numeroDeUsuario>numeroSecreto){
+            asignarTextoElemento('p','El número secreto es menor')
+        }else{
+            asignarTextoElemento('p','El número secreto es mayor')
+        }
+    }
     return;
 }
 
