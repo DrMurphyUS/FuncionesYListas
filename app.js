@@ -16,16 +16,23 @@ function verificarIntento(){
     console.log(numeroSecreto);
     if(numeroDeUsuario === numeroSecreto){
     asignarTextoElemento('p',`ACERTASTE EL NÚMERO EN ${intentos} ${(intentos === 1)?'INTENTO':'INTENTOS'}`);
+    document.getElementById('reiniciar').removeAttribute('disabled');
+
     }else{
+        //El usuario no acerto
         if(numeroDeUsuario>numeroSecreto){
             asignarTextoElemento('p','El número secreto es menor')
         }else{
             asignarTextoElemento('p','El número secreto es mayor')
         }
         intentos++;
+        limpiarCaja();
     }
     return;
     
+}
+function limpiarCaja(){
+   document.querySelector('#valorUsuario').value='';
 }
 
 function generarNumeroSecreto() {
