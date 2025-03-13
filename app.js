@@ -1,6 +1,8 @@
 
 let numeroSecreto;
 let intentos;
+let listaNumerosSorteados = [];
+
 console.log(numeroSecreto);
 
 
@@ -36,7 +38,13 @@ function limpiarCaja(){
 }
 
 function generarNumeroSecreto() {
-    return Math.floor(Math.random()*10)+1;
+    let numeroGenerado = Math.floor(Math.random()*10)+1;
+    // Si el número generado esta incluido en la lista
+    if (listaNumerosSorteados.includes(numeroGenerado)) {
+        return generarNumeroSecreto();
+    } else {
+        listaNumerosSorteados.push(numeroGenerado);
+    }
 }
 function condicionesIniciales(){
     asignarTextoElemento('h1','Juego Del Número Secreto');
